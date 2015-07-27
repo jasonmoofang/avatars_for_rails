@@ -24,7 +24,8 @@ var AvatarForRails = AvatarForRails || (function($, undefined) {
       progressall: function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
 
-        $('#avatar-progress .bar').css(
+        //$('#avatar-progress .bar').css(
+        $('#avatar_progress_bar').css(
           'width',
           progress + '%'
         );
