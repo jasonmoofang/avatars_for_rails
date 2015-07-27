@@ -13,6 +13,7 @@ module AvatarsForRails
 
       before_validation :validate_crop_params, :crop_avatar,
                         :check_avatar_aspect_ratio
+      validates_attachment :logo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
     end
 
     def avatar_tmp_public_path(root_path)
