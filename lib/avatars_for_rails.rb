@@ -10,7 +10,7 @@ module AvatarsForRails
 
   # Filters to run before updating the avatar
   mattr_accessor :controller_filters
-  @@controller_filters = [ :authenticate_user! ]
+  @@controller_filters = []
 
   # The method to get the avatarable in the controller
   mattr_accessor :controller_avatarable
