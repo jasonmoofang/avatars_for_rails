@@ -19,10 +19,10 @@ var AvatarForRails = AvatarForRails || (function($, undefined) {
   };
 
   var initFileUpload = function() {
-    $('#avatar_progress_text').text("Uploading...");
     $('input[name*="logo"]').fileupload({
       dataType: 'json',
       progressall: function (e, data) {
+        $('#avatar_progress_text').text("Uploading...");
         var progress = parseInt(data.loaded / data.total * 100, 10);
 
         //$('#avatar-progress .bar').css(
