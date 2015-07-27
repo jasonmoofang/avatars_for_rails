@@ -5,6 +5,8 @@
 
   <%= form_for avatarable, url: avatar_path, multipart: true do |f| %>
     <%= f.file_field :logo, "data-url" => avatar_path %>
+    <%= hidden_field_tag :class, avatarable.class.to_s.underscore %>
+    <%= hidden_field_tag :id, avatarable.id %>
   <% end %>
 </div>
 

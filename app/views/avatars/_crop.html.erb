@@ -5,6 +5,8 @@
     <%= f.hidden_field "logo_crop_#{ attr }" %>
   <% end %>
     <%= f.hidden_field :avatar_tmp_basename %>
+    <%= hidden_field_tag :class, avatarable.class.to_s.underscore %>
+    <%= hidden_field_tag :id, avatarable.id %>
 
   <%= f.submit t('avatar.crop_submit'), class: "btn" %>
 <% end %>

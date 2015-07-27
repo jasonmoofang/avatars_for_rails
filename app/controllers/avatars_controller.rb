@@ -25,6 +25,16 @@ class AvatarsController < ApplicationController
   def current_avatarable
     send AvatarsForRails.controller_avatarable
   end
+  
+  def default_get_avatarable
+    if !@the_avatarable.blank?
+      @the_avatarable
+    elsif !params[:class].blank? && params[:class].classify.constantize.is_a?(Class)
+      @the_avatarable = params[:class].classify.constantize.find_by id: params[:id]
+    else
+      nil
+    end
+  end
 
   def avatarable_params
     params.

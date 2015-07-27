@@ -14,7 +14,7 @@ module AvatarsForRails
 
   # The method to get the avatarable in the controller
   mattr_accessor :controller_avatarable
-  @@controller_avatarable = :current_user
+  @@controller_avatarable = :default_get_avatarable
 
   # The default styles that will be generated
   mattr_accessor :avatarable_styles
