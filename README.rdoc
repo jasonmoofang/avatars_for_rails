@@ -3,8 +3,8 @@
 This is a fork of ging/avatars_for_rails with a number of improvements, including
 
 * Ability to work with multiple avatarable models
-* Form-level identifying of model to update avatar of in avatar form
-* Updates so the gem works properrly with latest versions of rails (v4) and related gems (like jquery-ui v5 onwards)
+* The avatarable to update is now encoded at form-level by default - ie if you render an avatar form with a particular model object, it is that object that will be updated. No more need to specify a controller accessor method to obtain the avatarable to update - though this is still possible.
+* Updates so the gem works properly with latest versions of rails (v4) and related gems (like jquery-ui v5 onwards)
 * Some minor cosmetic and user-friendliness improvements
 
 The documentation below has also been amended and improved.
@@ -19,13 +19,13 @@ It relies on paperclip and imagemagick
 
 = Requirements
 
-* All models that you intend to add an avatar to must have a unique identifying 'id' column by default
-* For the gem to work properly, you must have defined a *root path* in your routes.rb. For eg
+All models that you intend to add an avatar to must have a unique identifying 'id' column by default
+
+For the gem to work properly, you must have defined a *root path* in your routes.rb. For eg
 
   root 'users#index'
 
-* In order to get a nice progress slider in the avatar form, you should have bootstrap css included in
-your project, though this is not mandatory for the gem to work.
+In order to get a nice progress slider in the avatar form, you should have bootstrap css included in your project, though this is not mandatory for the gem to work.
 
 = Installation
 
