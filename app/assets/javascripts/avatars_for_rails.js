@@ -29,7 +29,7 @@ var AvatarForRails = AvatarForRails || (function($, undefined) {
         $('#avatar_progress_bar').css(
           'width',
           progress + '%'
-        );
+        ).text(progress + '%');
       },
       done: uploadDone
     });
@@ -46,6 +46,7 @@ var AvatarForRails = AvatarForRails || (function($, undefined) {
     } else {
       Flashy.message('error', data.result.errors);
     }
+    $('#avatar_progress_text').text("Done");
   };
 
   var initCrop = function(data) {
