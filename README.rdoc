@@ -1,16 +1,37 @@
+= About this fork
+
+This is a fork of ging/avatars_for_rails with a number of improvements, including
+
+* Ability to work with multiple avatarable models
+* Form-level identifying of model to update avatar of in avatar form
+* Updates so the gem works properrly with latest versions of rails (v4) and related gems (like jquery-ui v5 onwards)
+* Some minor cosmetic and user-friendliness improvements
+
+The documentation below has also been amended and improved.
+
 = Avatars For Rails
 
-Avatars For Rails is a integral solution to provide a model with avatar support.
+Avatars For Rails is an integral solution to provide a model with avatar support.
 
 It includes a database migration and views with jquery.fileupload and jquery.jcrop
 
 It relies on paperclip and imagemagick
 
+= Requirements
+
+* All models that you intend to add an avatar to must have a unique identifying 'id' column by default
+* For the gem to work properly, you must have defined a *root path* in your routes.rb. For eg
+
+  root 'users#index'
+
+* In order to get a nice progress slider in the avatar form, you should have bootstrap css included in
+your project, though this is not mandatory for the gem to work.
+
 = Installation
 
-Add to your Gemfile:
+To use this version of the gem, add to your Gemfile:
 
-  gem 'avatars_for_rails'
+  gem 'avatars_for_rails', git: 'https://github.com/jasonmoofang/avatars_for_rails'
 
 and run:
 
@@ -45,8 +66,13 @@ You must include the javascript and css files
   //= require avatars_for_rails
 
  
-If you want to get an user's avatar you can do: 
+If you want to get a user's original-sized avatar you can do: 
   user.logo
-  
-For rendering an image_tag for an user's avatar:
-  <%= image_tag(user.logo.url(:style) ) %>
+
+The default configuration defines 2 alternative size styles that are auto-created on avatar upload.
+They are 'small' (50x50) and 'medium' (120x120)
+
+To render an image_tag for an user's avatar in 'medium' size:
+  <%= image_tag(user.logo.url(:medium) ) %>
+
+See https://github.com/jasonmoofang/rails_avatar_demo for a simple demo app showing this gem in action.
